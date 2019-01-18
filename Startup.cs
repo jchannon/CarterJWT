@@ -2,14 +2,15 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WebApi.Helpers;
-using WebApi.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Carter;
+using CarterJWT.Helpers;
+using CarterJWT.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi
+namespace CarterJWT
 {
     public class Startup
     {
@@ -18,13 +19,16 @@ namespace WebApi
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // configure DI for application services
+            services.AddScoped<IUserService, UserService>();
+            
             services.AddCors();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddCarter();
 
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
@@ -51,8 +55,6 @@ namespace WebApi
                 };
             });
 
-            // configure DI for application services
-            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,7 +68,7 @@ namespace WebApi
 
             app.UseAuthentication();
             
-            app.UseMvc();
+            app.UseCarter();
         }
     }
 }

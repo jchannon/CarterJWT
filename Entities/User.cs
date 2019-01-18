@@ -1,4 +1,4 @@
-namespace WebApi.Entities
+namespace CarterJWT.Entities
 {
     public class User
     {

@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Carter" Version="3.11.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.App" /> <!--Don't use this, choose the packages you want -->
+    </ItemGroup>
+</Project>

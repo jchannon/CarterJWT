@@ -4,12 +4,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using CarterJWT.Entities;
+using CarterJWT.Helpers;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using WebApi.Entities;
-using WebApi.Helpers;
 
-namespace WebApi.Services
+namespace CarterJWT.Services
 {
     public interface IUserService
     {

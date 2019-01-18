@@ -44,3 +44,6 @@ client/app/**/*.js.map
 # .NET compiled files
 bin
 obj
+
+.idea
+*.user

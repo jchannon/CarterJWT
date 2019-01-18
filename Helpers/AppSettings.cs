@@ -1,4 +1,4 @@
-namespace WebApi.Helpers
+namespace CarterJWT.Helpers
 {
     public class AppSettings
     {
